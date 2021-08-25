@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """Script that does the deployment"""
 import os
-from fabric.api import put
-from fabric.api import run
 from fabric.api import *
 
 
 env.hosts = ['34.139.167.198', '34.138.129.5']
 
+
 def do_deploy(archive_path):
     """Distributes an archive to your web servers"""
+
     if not os.path.exists(archive_path):
         return False
     else:

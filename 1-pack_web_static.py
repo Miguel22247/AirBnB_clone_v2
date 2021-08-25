@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """ Script that compress files using .tgz"""
-from fabric.api import run
-from fabric.api import local
+from fabric.api import run, local
 from datetime import datetime
 
 
 def do_pack():
     """function that generates .tgz file"""
+
+    format_d = "%Y%m%d%H%M%S"
     try:
         local("mkdir -p versions")
         date = datetime.now()

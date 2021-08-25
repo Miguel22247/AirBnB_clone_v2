@@ -7,6 +7,7 @@ from fabric.api import env, local, run, put
 
 env.hosts = ['34.139.167.198', '34.138.129.5']
 
+
 def do_pack():
     """Generates a .tgz archive"""
     try:
@@ -18,8 +19,10 @@ def do_pack():
     except:
         return None
 
+
 def do_deploy(archive_path):
     """Distributes an archive to your web servers"""
+
     if os.path.exists(archive_path):
         try:
             put(archive_path, "/tmp/")
@@ -44,8 +47,10 @@ def do_deploy(archive_path):
     else:
         return False
 
+
 def deploy():
     """Creates and distributes an archive to your web servers"""
+
     file_name = do_pack()
     if not file_name:
         return False
