@@ -26,8 +26,8 @@ def do_pack():
 def do_deploy(archive_path):
     """Distributes an archive to your web servers"""
 
-
     mkdir_cmd = "mkdir -p /data/web_static/releases/"
+    rm_cmd = "rm -rf /data/web_static/releases/"
     deployed_success = "New Version Deployed!"
     if os.path.exists(archive_path):
         try:
@@ -42,7 +42,7 @@ def do_deploy(archive_path):
             run("rm /tmp/" + filename[1])
             run("mv /data/web_static/releases/" + file_name +
                 "/web_static/* /data/web_static/releases/" + file_name + "/")
-            run("rm -rf /data/web_static/releases/" + file_name + "/web_static")
+            run( rm_cmd + file_name + "/web_static")
             run("rm -rf /data/web_static/current")
             run("ln -s /data/web_static/releases/" + file_name +
                 "/ /data/web_static/current")
