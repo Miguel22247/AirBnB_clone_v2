@@ -9,14 +9,14 @@ env.hosts = ['34.139.167.198', '34.138.129.5']
 
 
 def do_pack():
-    
-    format_d = "%Y%m%d%H%M%S"
-    cmd = "mkdir -p versions"
     """Generates a .tgz archive"""
+
+    format_d = "%Y%m%d%H%M%S"
+    dir_path = "versions/web_static_"
     try:
-        local(cmd)
+        local("mkdir -p versions")
         date = datetime.now()
-        filename = "versions/web_static_" + date.strftime(format_d) + ".tgz"
+        filename = dir_path + date.strftime(format_d) + ".tgz"
         local("tar -cvzf " + filename + " web_static")
         return filename
     except:
@@ -26,13 +26,16 @@ def do_pack():
 def do_deploy(archive_path):
     """Distributes an archive to your web servers"""
 
+
+    mkdir_cmd = "mkdir -p /data/web_static/releases/"
+    deployed_success = "New Version Deployed!"
     if os.path.exists(archive_path):
         try:
             put(archive_path, "/tmp/")
             filename = archive_path.split('/', 1)
             no_ext = filename[1].split('.', 1)
             file_name = no_ext[0]
-            run("mkdir -p /data/web_static/releases/" + file_name + "/")
+            run(mkdir_cmd + file_name + "/")
             run("tar -zxf /tmp/" + filename[1] +
                 " -C /data/web_static/releases/" +
                 file_name + "/")
@@ -43,7 +46,7 @@ def do_deploy(archive_path):
             run("rm -rf /data/web_static/current")
             run("ln -s /data/web_static/releases/" + file_name +
                 "/ /data/web_static/current")
-            print("New version deployed!")
+            print("{}".format(deployed_success))
             return True
         except:
             return False

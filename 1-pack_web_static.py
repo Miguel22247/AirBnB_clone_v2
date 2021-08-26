@@ -6,7 +6,7 @@ from datetime import datetime
 
 def do_pack():
     """Generates a .tgz archive"""
-    
+
     format_d = "%Y%m%d%H%M%S"
     dir_path = "versions/web_static_"
     try:
