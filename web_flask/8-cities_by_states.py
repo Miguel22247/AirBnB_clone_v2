@@ -6,7 +6,7 @@ from models import storage
 app = Flask(__name__, template_folder="templates")
 app.url_map.strict_slashes = False
 
-@app.route('/states_list')
+@app.route('/cities_by_states')
 def states_list():
 	"""displays a new HTML page"""
 	new_dict = storage.all('State')
