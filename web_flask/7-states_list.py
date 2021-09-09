@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Script that list all states"""
 from flask import Flask, render_template
-from models import State 
 from models import storage
+from models import State
 app = Flask(__name__, template_folder="templates")
 app.url_map.strict_slashes = False
 
