@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines the State class."""
 import models
+import os
 from os import getenv
 from models.base_model import Base
 from models.base_model import BaseModel
@@ -25,7 +26,7 @@ class State(BaseModel, Base):
     else:
 
         name = ""
-        
+
         @property
         def cities(self):
             """Get a list of all related City objects."""
