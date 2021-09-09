@@ -8,9 +8,9 @@ app.url_map.strict_slashes = False
 
 @app.route('/states_list')
 def states_list():
-	"""displays a new HTML page"""
-	new_dict = storage.all('State')
-	return render_template('7-states_list.html', states=new_dict)
+    """displays a new HTML page"""
+    new_dict = storage.all('State')
+    return render_template('7-states_list.html', states=new_dict)
 
 @app.teardown_appcontext
 def teardown_db(exception):

@@ -8,23 +8,24 @@ app.url_map.strict_slashes = False
 
 @app.route('/states')
 def states_list():
-	"""displays a new HTML page"""
-	new_dict = storage.all('State')
-	return render_template('9-states.html', states=new_dict)
+    """displays a new HTML page"""
+    new_dict = storage.all('State')
+    return render_template('9-states.html', states=new_dict)
 
 @app.route('/states/<id>')
 def states_id():
-	"""Display a HTML page with the state id's"""
-	new_dict = storage.all('State')
-	if id:
-		key = '{}.{}'.format('State', id)
-		if key in new_dict:
-			new_dict = new_dict[key]
-		else:
-			new_dict = None
-	else:
-		new_dict = storage.all('State')
-	return render_template('9-states.html', states=new_dict, id=id)
+    """Display a HTML page with the state id's"""
+    new_dict = storage.all('State')
+    if "State." + id in new_dict:
+        for key, value in new_dict.items():
+            if id in key:
+                name = value.name
+                city_dict = value.cities
+    else:
+        return render_template('9-states.html', els=True)
+    return render_template('9-states.html', cities=city_dict,
+                           id=id, name=name)
+
 
 @app.teardown_appcontext
 def teardown_db(exception):
