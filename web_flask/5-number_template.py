@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Script that prepares a Flask web app"""
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__, template_folder="templates")
 app.url_map.strict_slashes = False
 
