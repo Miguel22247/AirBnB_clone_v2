@@ -12,7 +12,8 @@ def hbnb_filters():
     """Displays a HTML page that lists all filters"""
     state_dic = storage.all(State)
     amen_dic = storage.all(Amenity)
-    return render_template('10-hbnb_filters.html', states=state_dic, amens = amen_dic)
+    return render_template('10-hbnb_filters.html', states=state_dic, amens=amen_dic)
+
 
 @app.teardown_appcontext
 def teardown_db(exception):
