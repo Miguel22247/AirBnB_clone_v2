@@ -14,6 +14,7 @@ def hbnb_filters():
     amen_dic = storage.all(Amenity)
 return render_template('10-hbnb_filters.html', states=state_dic, amens=amen_dic)
 
+
 @app.teardown_appcontext
 def teardown_db(exception):
     """Remove the current SQLAlchemy to refresh the content"""
