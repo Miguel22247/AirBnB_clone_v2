@@ -10,6 +10,7 @@ def hi_hbnb():
     """display “Hello HBNB!” on the terminal"""
     return 'Hello HBNB!'
 
+
 @app.route('/hbnb',)
 def hbnb():
     """Display HBNB"""

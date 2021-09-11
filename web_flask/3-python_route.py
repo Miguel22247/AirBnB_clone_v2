@@ -10,16 +10,19 @@ def hi_hbnb():
     """display “Hello HBNB!” on the terminal"""
     return 'Hello HBNB!'
 
+
 @app.route('/hbnb',)
 def hbnb():
     """Display HBNB"""
     return 'HBNB!'
+
 
 @app.route('/c/<text>')
 def c(text):
     """display c follow by the value"""
     repla = text.replace('_', ' ')
     return 'C {}' .format(repla)
+  
     
 @app.route('/python')
 @app.route('/python/<text>')
