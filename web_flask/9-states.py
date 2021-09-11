@@ -6,6 +6,7 @@ from models import storage
 app = Flask(__name__, template_folder="templates")
 app.url_map.strict_slashes = False
 
+
 @app.route('/states')
 def states():
     """displays a new HTML page"""
