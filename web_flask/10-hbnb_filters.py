@@ -9,9 +9,9 @@ app.url_map.strict_slashes = False
 @app.route('/hbnb_filters')
 def hbnb_filters():
 	"""Displays a HTML page that lists all filters"""
-	state_dict = storage.all('State')
-	amenity_dict = storage.all('Amenity')
-	return render_template('10-hbnb_filters.html', states=state_dict, amens = amenity_dict)
+	state_dic = storage.all('State')
+	amenity_dic = storage.all('Amenity')
+	return render_template('10-hbnb_filters.html', states=state_dic, amens = amenity_dic)
 
 
 @app.teardown_appcontext
