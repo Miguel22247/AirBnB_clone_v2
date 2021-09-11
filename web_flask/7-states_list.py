@@ -12,6 +12,7 @@ def states_list():
     new_dict = storage.all('State')
     return render_template('7-states_list.html', states=new_dict)
 
+
 @app.teardown_appcontext
 def teardown_db(exception):
     """Remove the current SQLAlchemy"""

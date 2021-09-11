@@ -12,6 +12,7 @@ def states():
     new_dict = storage.all('State')
     return render_template('9-states.html', states=new_dict)
 
+
 @app.route('/states/<id>')
 def states_id(id):
     """display a HTML page"""
@@ -25,6 +26,7 @@ def states_id(id):
         return render_template('9-states.html', els=True)
     return render_template('9-states.html', cities=city_dict,
                            id=id, name=name)
+
 
 @app.teardown_appcontext
 def teardown_db(exception):

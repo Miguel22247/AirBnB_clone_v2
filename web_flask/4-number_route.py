@@ -22,7 +22,7 @@ def c(text):
     """display c follow by the value"""
     repla = text.replace('_', ' ')
     return 'C {}' .format(repla)
- 
+
 
 @app.route('/python')
 @app.route('/python/<text>')

@@ -13,6 +13,7 @@ def hbnb_filters():
 	amenity_dict = storage.all('Amenity')
 	return render_template('10-hbnb_filters.html', states=state_dict, amens = amenity_dict)
 
+
 @app.teardown_appcontext
 def teardown_db(exception):
     """Remove the current SQLAlchemy to refresh the content"""
