@@ -6,15 +6,15 @@ app.url_map.strict_slashes = False
 
 
 @app.route('/')
-def hi_hbnb():
-    """display “Hello HBNB!” on the terminal"""
+def hello_hbnb():
+    """display Hello HBNB!"""
     return 'Hello HBNB!'
 
 
 @app.route('/hbnb')
 def hbnb():
-    """Display HBNB"""
-    return 'HBNB!'
+    """display HBNB"""
+    return 'HBNB'
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='5000')
+    app.run(host='0.0.0.0', port='5000'))
